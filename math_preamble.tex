@@ -1,0 +1,149 @@
+%========================================================================
+% Preamble (General)
+%========================================================================
+
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{extramarks}
+\usepackage{chngpage}
+\usepackage{soul}
+\usepackage{graphicx,float,wrapfig}
+\usepackage[pdftex,dvipsnames,usenames]{color}
+\usepackage{ifthen}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{makeidx,latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{verbatim}
+\usepackage{longtable}
+\usepackage{bigstrut}
+\usepackage{enumerate}
+\usepackage{caption}
+\usepackage{cancel}
+\bibliographystyle{normal}
+\usepackage{framed}
+\usepackage{float}
+\usepackage{hhline}
+\usepackage{totcount}
+\usepackage{multirow}
+\usepackage{ulem}
+\usepackage{hhline}
+\usepackage{subfloat}
+\usepackage{verbatim}
+\usepackage{ulem}
+
+%========================================================================
+% Preamble (Macros)
+%========================================================================
+
+% Partial derivatives
+\renewcommand{\part}[2][]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppart}[2][]{\frac{\partial^2 #1}{\partial #2^2}}
+
+% Degree symbol
+\newcommand{\degree}{$^\circ$}
+
+% Double surface integral
+\newcommand\oiint{\begingroup
+\displaystyle \unitlength 1pt
+\int\mkern-7.2mu
+\begin{picture}(0,3)
+\put(0,3){\oval(10,8)}
+\end{picture}
+\mkern-7mu\int\endgroup}
+
+% Number field shorthand
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+
+% Extended list of math words (like \cos and \lim and such)
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\dom}{\mathrm{dom}}
+\newcommand{\range}{\mathrm{range}}
+\newcommand{\lub}{\mathrm{lub}}
+\newcommand{\glb}{\mathrm{glb}}
+\newcommand{\fl}{\mathrm{fl}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Range}{\mathrm{Range}}
+\renewcommand{\Re}{\mathrm{Re}}
+\renewcommand{\Im}{\mathrm{Im}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\Corr}{\mathrm{Corr}}
+\newcommand{\diam}{\mathrm{diam}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\trace}{\mathrm{trace}}
+\newcommand{\tr}{\mathrm{tr}}
+
+% Derivatives (requires an above command for \d)
+\newcommand{\der}[2][]{\frac{\d #1}{\d #2}}
+\newcommand{\dder}[2][]{\frac{\d^2 #1}{\d #2^2}}
+
+% Generalized Cartesian product
+\newcommand{\bigtimes}{\mathop{\mathchoice{\dobigtimes\Huge}{\dobigtimes\huge}{\dobigtimes\LARGE}{\dobigtimes\Large}}\displaylimits}
+\newcommand{\dobigtimes}[1]{\vcenter{#1\kern.2ex\hbox{$\times$}\kern.2ex}}
+
+% Floor and Ceiling
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\ceiling}[1]{\left\lceil #1 \right\rceil}
+
+% Innder Product
+\newcommand{\inner}[1]{\left\langle #1 \right\rangle}
+
+% Probability and Expectation
+\renewcommand{\Pr}{\mathrm{Pr}}
+\newcommand{\E}{\mathbb{E}}
+
+% Superscripts for Ordinals
+\renewcommand{\th}{$^{\text{th}}$}
+\newcommand{\nd}{$^{\text{nd}}$}
+\renewcommand{\st}{$^{\text{st}}$}
+\newcommand{\rd}{$^{\text{rd}}$}
+
+% Common Derivative Symbols
+\newcommand{\dx}{\, \d x}
+\newcommand{\dy}{\, \d y}
+\newcommand{\dz}{\, \d z}
+\newcommand{\ds}{\, \d s}
+\newcommand{\dS}{\, \d S}
+\newcommand{\dA}{\, \d A}
+\newcommand{\dV}{\, \d V}
+\newcommand{\dt}{\, \d t}
+\newcommand{\dtheta}{\, \d \theta}
+\newcommand{\dr}{\, \d r}
+\newcommand{\dxi}{\, \d \xi}
+\newcommand{\deta}{\, \d \eta}
+\newcommand{\dsigma}{\, \d \sigma}
+\newcommand{\dmu}{\, \d \mu}
+\newcommand{\dnu}{\, \d \nu}
+\newcommand{\dlambda}{\, \d \lambda}
+\newcommand{\du}{\, \d u}
+
+% Norm and Abs
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\abs}[1]{\left| #1 \right|}
+
+% Argmin and argmax
+\DeclareMathOperator*{\argmin}{\mathrm{argmin}}
+\DeclareMathOperator*{\argmax}{\mathrm{argmax}}
+
+% Math strikethrough (requires ulem)
+\newcommand{\mathsout}[1]{\text{\sout{$#1$}}}
+
+% Center dot with some spacing
+\newcommand{\normdot}{\, \cdot \,}
+
+% Set notation with "s.t." bar
+\newcommand{\set}[2]{\left\{#1\,\middle|\,#2\right\}}
+
+% Essential supremum and infimum
+\DeclareMathOperator*{\esssup}{\mathrm{ess \, sup}}
+\DeclareMathOperator*{\essinf}{\mathrm{ess \, inf}}
